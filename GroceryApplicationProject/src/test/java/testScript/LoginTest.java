@@ -26,7 +26,7 @@ public class LoginTest extends TestNGBase{
 
 	}
 
-	@Test(priority=2,description="Verify whether user is able to login with valid username and invalid password")
+	@Test(priority=2,description="Verify whether user is able to login with valid username and invalid password",groups="smoke")
 	public void verifyUserLoginWithValidUsernameAndInvalidPassword() throws IOException {
 
 		String username1=ExcelUtility.getStringData(1, 0, "LoginPage");
@@ -43,7 +43,7 @@ public class LoginTest extends TestNGBase{
 		
 	}
 
-	@Test(priority=3,description="Verify whether user is able to login with invalid username and valid password")
+	@Test(priority=3,description="Verify whether user is able to login with invalid username and valid password",groups="smoke")
 	public void verifyUserLoginWithInvalidUsernameAndValidPassword() throws IOException {
 		String username1=ExcelUtility.getStringData(2, 0, "LoginPage");
 		String password1=ExcelUtility.getStringData(2, 1, "LoginPage");

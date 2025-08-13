@@ -3,16 +3,16 @@
 <suite name="Suite">
 <parameter name="browsers" value="chrome"></parameter>
 
-<listeners>
-
-<listener class-name="reportGeneration.Listeners"></listener>
-</listeners>
   <test thread-count="5" name="Test">
+  <groups>
+  <run>
+  <include name="smoke"></include>
+  </run>
+  </groups>
     <classes>
      
       <class name="testScript.LoginTest">
       <methods>
-      <include name="verifyUserLoginWithValidCredentials"></include>
       </methods>
       </class>
     
