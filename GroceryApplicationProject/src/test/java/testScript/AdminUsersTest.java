@@ -19,9 +19,7 @@ public class AdminUsersTest extends TestNGBase{
 		String username1=ExcelUtility.getStringData(0, 0, "LoginPage");
 		String password1=ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(username1);
-		loginpage.enterPasswordOnPasswordField(password1);
-		loginpage.clickOnSignInButton();
+		loginpage.enterUserNameOnUserNameField(username1).enterPasswordOnPasswordField(password1).clickOnSignInButton();
 		
 		AdminUSersPage adminuserpage= new AdminUSersPage(driver);
 		adminuserpage.clickOnAdminUsersIcon();

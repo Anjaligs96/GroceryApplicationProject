@@ -16,10 +16,7 @@ public class AdminUSersPage {
 	}
 	
 	//@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin']")
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and text()='More info ']")
-	//
 	
-	private WebElement adminUsersIcon;
 	@FindBy(xpath="//a[@onclick='click_button(1)']")
 	private WebElement clickOnnewbutton;
 	@FindBy(xpath="//input[@id='username']")
@@ -55,10 +52,7 @@ public class AdminUSersPage {
 	@FindBy(xpath="h4[text()='Admin Users']")
 	WebElement resetAdminUsersText;
 	
-	public void clickOnAdminUsersIcon()
-	{
-		adminUsersIcon.click();
-	}
+
      
 	public void clickOnNewButton()
 	{

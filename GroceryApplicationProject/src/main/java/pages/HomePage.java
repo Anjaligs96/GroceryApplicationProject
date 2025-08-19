@@ -20,13 +20,18 @@ public class HomePage {
 	private WebElement logout;
 	@FindBy(xpath="//b[text()='7rmart supermarket']")
 	private WebElement supermarketName;
+	
+	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and text()='More info ']")
+	private WebElement adminUsersIcon;
 
-	public void clickOnAdminIcon() {
+	public HomePage clickOnAdminIcon() {
 		adminIcon.click();
+		return this;
 	}
 
-	public void clickOnLogout() {
+	public LoginPage clickOnLogout() {
 		logout.click();
+		return new LoginPage(driver);
 	}
 	
 	public String loginpageHeading()
@@ -34,4 +39,10 @@ public class HomePage {
 		return supermarketName.getText();
 	}
 
+	
+	public AdminUSersPage clickOnAdminUsersIcon()
+	{
+		adminUsersIcon.click();
+		return new AdminUSersPage(driver);
+	}
 }

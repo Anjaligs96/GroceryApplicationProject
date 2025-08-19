@@ -27,17 +27,20 @@ public class LoginPage {
 	@FindBy(xpath="//b[text()='7rmart supermarket']")
 	private WebElement supermarketname;
 
-	public void enterUserNameOnUserNameField(String username1) {
+	public LoginPage enterUserNameOnUserNameField(String username1) {
 		username.sendKeys(username1);
+		return this;
 
 	}
 
-	public void enterPasswordOnPasswordField(String password1) {
+	public LoginPage enterPasswordOnPasswordField(String password1) {
 		password.sendKeys(password1);
+		return this;
 	}
 
-	public void clickOnSignInButton() {
+	public HomePage clickOnSignInButton() {
 		loginbutton.click();
+		return new HomePage(driver);
 	}
 	
 	public boolean isDashboardDisplayed()
