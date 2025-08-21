@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import automationCore.TestNGBase;
+import constants.Messages;
 import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
@@ -25,7 +26,7 @@ public class LoginTest extends TestNGBase{
 		
 		//Assertion
 		boolean dashboarddisplay=loginpage.isDashboardDisplayed();
-		Assert.assertTrue(dashboarddisplay,"User is unable to login with valid credentials");
+		Assert.assertTrue(dashboarddisplay,Messages.VALIDCREDENTIALERROR);
 
 	}
 
@@ -40,7 +41,7 @@ public class LoginTest extends TestNGBase{
 		//Assertion
 		String actual=loginpage.pageHeading();
 		String expected="7rmart supermarket";
-		Assert.assertEquals(actual, expected,"User was able to login with invalid password");
+		Assert.assertEquals(actual, expected,Messages.INVALIDPASSWORDERROR);
 		
 	}
 
@@ -54,7 +55,7 @@ public class LoginTest extends TestNGBase{
 		//Assertion
 		String actual=loginpage.pageHeading();
 		String expected="7rmart supermarket";
-		Assert.assertEquals(actual, expected,"User was able to login with invalid password");
+		Assert.assertEquals(actual, expected,Messages.INVALIDUSERNAMEERROR);
 	}
 
 	@Test(priority=4,description="Verify whether user is able to login with invalid username and invalid password",dataProvider = "loginProvider")
@@ -67,7 +68,7 @@ public class LoginTest extends TestNGBase{
 		//Assertion
 		String actual=loginpage.pageHeading();
 		String expected="7rmart supermarket";
-		Assert.assertEquals(actual, expected,"User was able to login with invalid password");
+		Assert.assertEquals(actual, expected,Messages.INVALIDCREDENTIALERROR);
 		
 		
 	}

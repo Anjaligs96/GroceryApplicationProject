@@ -24,6 +24,10 @@ public class HomePage {
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and text()='More info ']")
 	private WebElement adminUsersIcon;
 
+	
+	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and text()='More info ' ]")
+	private WebElement manageNewsIcon;
+	
 	public HomePage clickOnAdminIcon() {
 		adminIcon.click();
 		return this;
@@ -37,12 +41,18 @@ public class HomePage {
 	public String loginpageHeading()
 	{
 		return supermarketName.getText();
-	}
+	} 
 
 	
 	public AdminUSersPage clickOnAdminUsersIcon()
 	{
 		adminUsersIcon.click();
 		return new AdminUSersPage(driver);
+	}
+	
+	public ManageNewsPage clickOnManageNewsIcon()
+	{
+		manageNewsIcon.click();
+		return new ManageNewsPage(driver);
 	}
 }

@@ -7,23 +7,25 @@ import org.testng.annotations.Test;
 
 import automationCore.TestNGBase;
 import pages.AdminUSersPage;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 import utilities.RandomDataUtility;
 
 public class AdminUsersTest extends TestNGBase{
-	
+	HomePage homepage;
+	AdminUSersPage adminuserpage;
 	@Test(priority=1,description="Verify whether user is able to add new User")
 	public void verifyWhetherUserIsAbleToAddNewUser() throws IOException
 	{
 		String username1=ExcelUtility.getStringData(0, 0, "LoginPage");
 		String password1=ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(username1).enterPasswordOnPasswordField(password1).clickOnSignInButton();
+		loginpage.enterUserNameOnUserNameField(username1).enterPasswordOnPasswordField(password1);
+		homepage=loginpage.clickOnSignInButton();
 		
-		AdminUSersPage adminuserpage= new AdminUSersPage(driver);
-		adminuserpage.clickOnAdminUsersIcon();
-		adminuserpage.clickOnNewButton();
+		//AdminUSersPage adminuserpage= new AdminUSersPage(driver);
+		adminuserpage=homepage.clickOnAdminUsersIcon().clickOnNewButton();
 		
 		RandomDataUtility random= new RandomDataUtility();
 		String username2=random.createRandomUserName();
@@ -33,12 +35,8 @@ public class AdminUsersTest extends TestNGBase{
 		//String username2=ExcelUtility.getStringData(0, 0, "AdminUsersPage");
 		//String password2=ExcelUtility.getStringData(0, 1, "AdminUsersPage");
 		String usertype=ExcelUtility.getStringData(1, 0, "AdminUsersPage");
-		adminuserpage.enterUsernameOnUserNameField(username2);
-		adminuserpage.enterPasswordOnPasswordField(password2);
+		adminuserpage.enterUsernameOnUserNameField(username2).enterPasswordOnPasswordField(password2).selectUserType(usertype).clickOnSaveButton();
 		
-		adminuserpage.selectUserType(usertype);
-		
-		adminuserpage.clickOnSaveButton();
 		
 		//Assertion
 		boolean savedAlertButtondisplay=adminuserpage.isDisplayedUserSavedAlertMsg();
@@ -54,25 +52,17 @@ public class AdminUsersTest extends TestNGBase{
 		String username1=ExcelUtility.getStringData(0, 0, "LoginPage");
 		String password1=ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(username1);
-		loginpage.enterPasswordOnPasswordField(password1);
-		loginpage.clickOnSignInButton();
+		loginpage.enterUserNameOnUserNameField(username1).enterPasswordOnPasswordField(password1);
+		homepage=loginpage.clickOnSignInButton();
 		
-		AdminUSersPage adminuserpage= new AdminUSersPage(driver);
-		adminuserpage.clickOnAdminUsersIcon();
-		adminuserpage.clickOnNewButton();
+		adminuserpage=homepage.clickOnAdminUsersIcon().clickOnNewButton().clickOnSearchButton();
 		
 		
-		//AdminUSersPage adminuserpage= new AdminUSersPage(driver);
-		adminuserpage.clickOnSearchButton();
 		
 		String searchusername=ExcelUtility.getStringData(2, 0, "AdminUsersPage");
 		String searchusertype=ExcelUtility.getStringData(2, 1, "AdminUsersPage");
 		
-		adminuserpage.enterSearchUserName(searchusername);
-		adminuserpage.selectSearchUserType(searchusertype);
-		
-		adminuserpage.clickOnSearchAdminUserButton();
+		adminuserpage.enterSearchUserName(searchusername).selectSearchUserType(searchusertype).clickOnSearchAdminUserButton();
 		
 
 		//Assertion
@@ -87,13 +77,11 @@ public class AdminUsersTest extends TestNGBase{
 		String username1=ExcelUtility.getStringData(0, 0, "LoginPage");
 		String password1=ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(username1);
-		loginpage.enterPasswordOnPasswordField(password1);
-		loginpage.clickOnSignInButton();
+		loginpage.enterUserNameOnUserNameField(username1).enterPasswordOnPasswordField(password1);
+		homepage=loginpage.clickOnSignInButton();
 		
-		AdminUSersPage adminuserpage= new AdminUSersPage(driver);
-		adminuserpage.clickOnAdminUsersIcon();
-		adminuserpage.clickOnResetButton();
+		//AdminUSersPage adminuserpage= new AdminUSersPage(driver);
+		adminuserpage=homepage.clickOnAdminUsersIcon().clickOnResetButton();
 		
 		//Assertion
 		boolean resetAdminUserstext=adminuserpage.isDisplayedResetAdminUsersText();

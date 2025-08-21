@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
+
 public class AdminUSersPage {
 	
 	WebDriver driver;
@@ -54,56 +56,66 @@ public class AdminUSersPage {
 	
 
      
-	public void clickOnNewButton()
+	public AdminUSersPage clickOnNewButton()
 	{
 		clickOnnewbutton.click();
+		return new AdminUSersPage(driver);
 	}
 	
-	public void enterUsernameOnUserNameField(String username1)
+	public AdminUSersPage enterUsernameOnUserNameField(String username1)
 	{
 		username.sendKeys(username1);
+		return new AdminUSersPage(driver);
 	}
 	
-	public void enterPasswordOnPasswordField(String password1)
+	public AdminUSersPage enterPasswordOnPasswordField(String password1)
 	{
 		password.sendKeys(password1);
+		return new AdminUSersPage(driver);
 	}
 	
-	public void selectUserType(String usertype)
+	public AdminUSersPage selectUserType(String usertype)
 	{
-	  Select select= new Select(selectusertype);
-	  select.selectByVisibleText(usertype);
+	 PageUtility page= new PageUtility();
+	  page.selectDropdownWithVisibleText(clickOnUserSearchButton, usertype);
+	  return new AdminUSersPage(driver);
 	}
 	
-	public void clickOnSaveButton()
+	public AdminUSersPage clickOnSaveButton()
 	{
 		saveButton.click();
+		return new AdminUSersPage(driver);
 	}
 	
-	public void clickOnSearchButton()
+	public AdminUSersPage clickOnSearchButton()
 	{
 		searchButton.click();
+		return new AdminUSersPage(driver);
 	}
 	
-	public void enterSearchUserName(String username2)
+	public AdminUSersPage enterSearchUserName(String username2)
 	{
 		searchUserName.sendKeys(username2);
+		return new AdminUSersPage(driver);
 	}
 	
-	public void selectSearchUserType(String userchusertype)
+	public AdminUSersPage selectSearchUserType(String userchusertype)
 	{
 		Select select= new Select(searchUsertype);
 		  select.selectByVisibleText(userchusertype);
+		  return new AdminUSersPage(driver);
 	}
 	
-	public void clickOnSearchAdminUserButton()
+	public AdminUSersPage clickOnSearchAdminUserButton()
 	{
 		clickOnUserSearchButton.click();
+		return new AdminUSersPage(driver);
 	}
 	
-	public void clickOnResetButton()
+	public AdminUSersPage clickOnResetButton()
 	{
 		resetButton.click();
+		return new AdminUSersPage(driver);
 	}
 	
 	public Boolean isDisplayedUserSavedAlertMsg()

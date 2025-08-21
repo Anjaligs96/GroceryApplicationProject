@@ -15,6 +15,12 @@ public class PageUtility {
 		
 	}
 	
+	public void selectDropdownWithVisibleText(WebElement element, String text) {
+		Select object = new Select(element);
+		object.selectByVisibleText(text);
+		
+	}
+	
 	public void clickRadioButton( WebElement element)
 	{
 		element.click();

@@ -10,9 +10,9 @@
   <test thread-count="5" name="Test">
     <classes>
      
-      <class name="testScript.HomeTest">
+      <class name="testScript.LoginTest">
       <methods>
-      <include name="verifyWhetherUserIsAbleToSuccessfullyLogout"></include>
+      <include name="verifyUserLoginWithInValidCredentials"></include>
       </methods>
       </class>
     
