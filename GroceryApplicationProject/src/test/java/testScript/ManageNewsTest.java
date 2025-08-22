@@ -7,29 +7,31 @@ import org.testng.annotations.Test;
 
 import automationCore.TestNGBase;
 import pages.AdminUSersPage;
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageNewsPage;
 import utilities.ExcelUtility;
 
 public class ManageNewsTest extends TestNGBase{
 	
-
+  HomePage homepage;
+  ManageNewsPage managenewspage;
 	@Test(priority=1,description="Verify whether user is able to Add News")
 	public void verifyWhetherUserIsAbleToAddNews() throws IOException
 	{
 		String username1=ExcelUtility.getStringData(0, 0, "LoginPage");
 		String password1=ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(username1);
-		loginpage.enterPasswordOnPasswordField(password1);
-		loginpage.clickOnSignInButton();
+		loginpage.enterUserNameOnUserNameField(username1).enterPasswordOnPasswordField(password1);
+		homepage=loginpage.clickOnSignInButton();
 		
-		ManageNewsPage managenewspage= new ManageNewsPage(driver);
-		managenewspage.clickOnManageNewsIcon();
+		//ManageNewsPage managenewspage= new ManageNewsPage(driver);
+		managenewspage=homepage.clickOnManageNewsIcon();
 		
-		managenewspage.clickOnNewButton();
-		managenewspage.enterNewsInTextArea(ExcelUtility.getStringData(0, 0, "ManageNewsPage"));
-		managenewspage.clickOnSaveNewsButton();
+		//adminuserpage=homepage.clickOnAdminUsersIcon().clickOnNewButton();
+
+		
+		managenewspage.clickOnNewButton().enterNewsInTextArea(ExcelUtility.getStringData(0, 0, "ManageNewsPage")).clickOnSaveNewsButton();
 		
 		
 		//Assertion
@@ -46,16 +48,11 @@ public class ManageNewsTest extends TestNGBase{
 		String username1=ExcelUtility.getStringData(0, 0, "LoginPage");
 		String password1=ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(username1);
-		loginpage.enterPasswordOnPasswordField(password1);
-		loginpage.clickOnSignInButton();
+		loginpage.enterUserNameOnUserNameField(username1).enterPasswordOnPasswordField(password1);
+		homepage=loginpage.clickOnSignInButton();
 		
-		ManageNewsPage managenewspage= new ManageNewsPage(driver);
-		managenewspage.clickOnManageNewsIcon();
-		
-		managenewspage.clickOnSearchNewsIcon();
-		managenewspage.enterSearchNewsTitle(ExcelUtility.getStringData(0, 0, "ManageNewsPage"));
-		managenewspage.clickOnSearchNewsButton();
+		//ManageNewsPage managenewspage= new ManageNewsPage(driver);
+		managenewspage=homepage.clickOnManageNewsIcon().clickOnSearchNewsIcon().enterSearchNewsTitle(ExcelUtility.getStringData(0, 0, "ManageNewsPage")).clickOnSearchNewsButton();
 		
 
 		//Assertion
@@ -73,14 +70,11 @@ public class ManageNewsTest extends TestNGBase{
 		String username1=ExcelUtility.getStringData(0, 0, "LoginPage");
 		String password1=ExcelUtility.getStringData(0, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(username1);
-		loginpage.enterPasswordOnPasswordField(password1);
-		loginpage.clickOnSignInButton();
+		loginpage.enterUserNameOnUserNameField(username1).enterPasswordOnPasswordField(password1);
+		homepage=loginpage.clickOnSignInButton();
 		
-		ManageNewsPage managenewspage= new ManageNewsPage(driver);
-		managenewspage.clickOnManageNewsIcon();
-		
-		managenewspage.clickOnResetIcon();
+		//ManageNewsPage managenewspage= new ManageNewsPage(driver);
+		managenewspage=homepage.clickOnManageNewsIcon().clickOnResetIcon();
 		
 
 		//Assertion

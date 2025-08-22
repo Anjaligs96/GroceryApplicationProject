@@ -101,8 +101,11 @@ public class AdminUSersPage {
 	
 	public AdminUSersPage selectSearchUserType(String userchusertype)
 	{
-		Select select= new Select(searchUsertype);
-		  select.selectByVisibleText(userchusertype);
+		//Select select= new Select(searchUsertype);
+		  //select.selectByVisibleText(userchusertype);
+		  
+		  PageUtility page= new PageUtility();
+		  page.selectDropdownWithVisibleText(searchUsertype, userchusertype);
 		  return new AdminUSersPage(driver);
 	}
 	
